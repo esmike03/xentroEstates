@@ -10,7 +10,7 @@ class BookingsExport implements FromCollection, WithHeadings
 {
     public function collection()
     {
-        return Booking::select('fname', 'lname', 'email', 'phone', 'property', 'inquiring', 'communication', 'notes')->get();
+        return Booking::select('fname', 'lname', 'email', 'phone', 'property', 'inquiring', 'communication', 'notes', 'created_at')->get();
     }
 
     public function headings(): array
@@ -24,6 +24,7 @@ class BookingsExport implements FromCollection, WithHeadings
             'Inquiring',
             'Communication',
             'Notes',
+            'Date',
         ];
     }
 }

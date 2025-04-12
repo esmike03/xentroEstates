@@ -19,7 +19,8 @@
             <a href="/admin/dashboard" class="p-1 bg-gray-500 text-white rounded-md px-5">Back</a>
             <h1 class="text-3xl font-bold ">Booking List</h1>
         </div>
-        <a href="{{ route('bookings.export') }}" class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700 mb-4 inline-block">
+        <a href="{{ route('bookings.export') }}"
+            class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700 mb-4 inline-block">
             <i class="fas fa-file-excel"></i> Export to Excel
         </a>
 
@@ -50,6 +51,7 @@
                             <td class="py-2 px-4 border-b">{{ $booking->email }}</td>
                             <td class="py-2 px-4 border-b">{{ $booking->phone }}</td>
                             <td class="py-2 px-4 border-b">{{ $booking->property }}</td>
+
                             <td class="py-2 px-4 border-b">
                                 <button class="text-blue-500" onclick="openModal({{ json_encode($booking) }})">
                                     <i class="fa fa-eye"></i> View Details
@@ -102,6 +104,9 @@
             <div class="mb-4">
                 <strong>Additional Notes:</strong> <span id="modalNotes"></span>
             </div>
+            <div class="mb-4">
+                <strong>Date:</strong> <span id="modalDate"></span>
+            </div>
 
             <div class="text-right">
                 <button class="bg-blue-600 text-white py-2 px-4 rounded" onclick="closeModal()">Close</button>
@@ -117,6 +122,17 @@
             document.getElementById('modalEmail').innerText = booking.email;
             document.getElementById('modalPhone').innerText = booking.phone;
             document.getElementById('modalProperty').innerText = booking.property;
+            // Format date
+            const date = new Date(booking.created_at);
+            const formattedDate = date.toLocaleString('en-US', {
+                month: 'long',
+                day: 'numeric',
+                year: 'numeric',
+                hour: 'numeric',
+                minute: '2-digit',
+                hour12: true
+            });
+            document.getElementById('modalDate').innerText = formattedDate;
             document.getElementById('modalInquiring').innerText = booking.inquiring;
             let communicationModes = booking.communication;
 
