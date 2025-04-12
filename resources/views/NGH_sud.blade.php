@@ -6,7 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NGH Subdivision</title>
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
-
+    <script src="https://kit.fontawesome.com/your-kit-id.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link
         href="https://fonts.googleapis.com/css2?family=Big+Shoulders:opsz,wght@10..72,100..900&family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Roboto:ital,wght@0,100..900;1,100..900&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap"
         rel="stylesheet">
@@ -71,14 +73,30 @@
                                 <a href="/user/subdivisions" class="cursor-pointer hover:text-gray-500">Back</a>
                             </div>
 
+
+
                         </div>
 
                     </div>
                 </div>
-            </div>
 
+            </div>
+            <p class="absolute bottom-3 text-center text-gray-400">Scroll to see plot area</p>
 
         </section>
+        <section class="relative h-screen md:h-screen lg:h-screen bg-cover pb-4 bg-center px-8 pt-6 justify-center">
+            <h1 class="font-semibold text-2xl text-center mb-6">Plot Area</h1>
+            @if ($subdivision)
+            <div class="mb-4 pb-10">
+                <img src="{{ asset('storage/' . $subdivision->plot) }}" alt="{{ $subdivision->sub_name }}"
+                    class="w-full h-auto rounded mb-4">
+            </div>
+        @endif
+        </section>
+        <a href="#" class="transition-transform bg-amber-400 p-2 px-3 bottom-4 fixed rounded-lg text-white right-4 ">
+            <i class="fas fa-arrow-up "></i>
+        </a>
+
         <!-- Modal -->
         <div  x-init="$watch('showModal', value => { if (value) document.body.classList.add('overflow-hidden');
             else document.body.classList.remove('overflow-hidden'); })">
