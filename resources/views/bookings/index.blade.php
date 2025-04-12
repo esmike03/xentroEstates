@@ -19,6 +19,9 @@
             <a href="/admin/dashboard" class="p-1 bg-gray-500 text-white rounded-md px-5">Back</a>
             <h1 class="text-3xl font-bold ">Booking List</h1>
         </div>
+        <a href="{{ route('bookings.export') }}" class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700 mb-4 inline-block">
+            <i class="fas fa-file-excel"></i> Export to Excel
+        </a>
 
 
         @if ($bookings->isEmpty())

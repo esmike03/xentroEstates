@@ -80,11 +80,11 @@
                             <div class="flex justify-center px-2 items-center flex-wrap gap-4 mt-5 w-full">
                                 <div class="flex items-center gap-2 text-gray-600 text-xs">
                                     <i class="fa fa-phone"></i>
-                                    <span>(+63) 9XX-XXX-XXXX</span>
+                                    <span>(+63) 928-551-2464</span>
                                 </div>
                                 <div class="flex items-center gap-2 text-gray-600 text-xs">
                                     <i class="fa fa-envelope"></i>
-                                    <span>xentrostateproperties@gmail.com</span>
+                                    <span>xentroestateproperties@gmail.com</span>
                                 </div>
                                 <div class="flex items-center gap-2 text-gray-600 text-xs">
                                     <a href="/">
@@ -232,11 +232,11 @@
             <div class="flex justify-center items-center flex-wrap gap-4 mt-5 w-full">
                 <div class="flex items-center gap-2 text-gray-800 text-sm">
                     <i class="fa fa-phone"></i>
-                    <span>(+63) 9XX-XXX-XXXX</span>
+                    <span>(+63) 928-551-2464</span>
                 </div>
                 <div class="flex items-center gap-2 text-gray-800 text-sm">
                     <i class="fa fa-envelope"></i>
-                    <span>xentrostateproperties@gmail.com</span>
+                    <span>xentroestateproperties@gmail.com</span>
                 </div>
                 <div class="flex items-center gap-2 text-gray-800 text-sm">
                     <a href="/">

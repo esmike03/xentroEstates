@@ -7,6 +7,8 @@
     <link
     href="https://fonts.googleapis.com/css2?family=Big+Shoulders:opsz,wght@10..72,100..900&family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Roboto:ital,wght@0,100..900;1,100..900&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap"
     rel="stylesheet">
+    <script src="https://kit.fontawesome.com/your-kit-id.js" crossorigin="anonymous"></script>
+
     @vite('resources/css/app.css')
     @vite('resources/js/app.js')
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
@@ -26,12 +28,13 @@
             <!-- Navigation Menu (Desktop) -->
             <nav class="hidden md:flex space-x-6">
                 <a href="/" class="text-white hover:text-yellow-500 hover:scale-105 transition duration-300">Home</a>
-                <a href="/user-listings1"
-                    class="text-white hover:text-yellow-500 hover:scale-105 transition duration-300">Properties</a>
-                <a href="/about" class="text-white hover:text-yellow-500 hover:scale-105 transition duration-300">About Us</a>
-                <a href="/contact" class="text-white border-b-yellow-500 border-b-2 hover:text-yellow-500 hover:scale-105 transition duration-300">Contact</a>
                 <a href="/user/subdivisions"
                     class="text-white hover:text-yellow-500 hover:scale-105 transition duration-300">Subdivisions</a>
+                {{-- <a href="/user-listings1"
+                    class="text-white hover:text-yellow-500 hover:scale-105 transition duration-300">Properties</a> --}}
+                <a href="/about" class="text-white hover:text-yellow-500 hover:scale-105 transition duration-300">About Us</a>
+                <a href="/contact" class="text-white border-b-yellow-500 border-b-2 hover:text-yellow-500 hover:scale-105 transition duration-300">Contact</a>
+
             </nav>
 
             <!-- Mobile Menu Button -->
@@ -47,10 +50,11 @@
         <!-- Mobile Menu -->
         <div id="mobile-menu" class="hidden flex flex-col bg-zinc-800 shadow-md absolute w-full left-0 top-full z-50">
             <a href="#" class="block py-3 px-4 text-white hover:text-yellow-500 hover:bg-gray-100">Home</a>
+            <a href="/user/subdivisions" class="block py-3 px-4 text-white hover:text-yellow-500 hover:bg-gray-100">Subdivisions</a>
             <a href="/user-listings1" class="block py-3 px-4 hover:text-yellow-500 text-white hover:bg-gray-100">Properties</a>
             <a href="/about" class="block py-3 px-4 text-white hover:text-yellow-500 hover:bg-gray-100">About Us</a>
             <a href="/contact" class="block py-3 px-4 text-white hover:text-yellow-500 hover:bg-gray-100">Contact</a>
-            <a href="/user/subdivisions" class="block py-3 px-4 text-white hover:text-yellow-500 hover:bg-gray-100">Subdivisions</a>
+
         </div>
     </header>
     <div class="max-w-2xl mx-auto bg-white p-8 rounded-lg shadow-md mt-26">
@@ -70,7 +74,8 @@
                     <i class="fas fa-phone-alt text-gray-600 mr-3"></i>
                     <strong class="block font-medium">Phone:</strong>
                 </div>
-                <span class="block text-gray-700">(+63) 9XX-XXX-XXXX</span>
+                <span class="block text-gray-700">(+63) 928-551-2464</span>
+                <span class="block text-gray-700">(+63) 968-346-1315</span>
             </div>
 
             <div>
@@ -78,7 +83,8 @@
                     <i class="fas fa-envelope text-gray-600 mr-3"></i>
                     <strong class="block font-medium">Email:</strong>
                 </div>
-                <span class="block text-gray-700">xentrostateproperties@gmail.com</span>
+                <span class="block text-gray-700">xentroestateproperties@gmail.com</span>
+                <span class="block text-gray-700">xentroestatemktg@gmail.com</span>
             </div>
 
             {{-- <div>
@@ -94,8 +100,8 @@
                     <strong class="block font-medium">Social Media:</strong>
                 </div>
                 <div class="flex space-x-4">
-                    <a href="" class="text-blue-500 hover:underline"><i class="fab fa-facebook-f"></i> Facebook</a>
-
+                    <a href="https://www.facebook.com/profile.php?id=61560303077270" class="text-blue-500 hover:underline"><i class="fab fa-facebook-f"></i> Facebook</a>
+                    <a href="https://www.youtube.com/@LandDeals-m9o" class="text-blue-500 hover:underline"><i class="fab fa-youtube"></i> Youtube</a>
                 </div>
             </div>
         </div>

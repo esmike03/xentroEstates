@@ -21,47 +21,60 @@
             class="relative h-screen md:h-screen lg:h-screen bg-cover bg-center flex items-center justify-center text-white"
             style="background-image: url('{{ asset('storage/' . $subdivision->image) }}');">
             <div class="absolute inset-0 bg-black opacity-50"></div>
+            <div>
 
-            <!-- Content Overlay -->
-            <div class="relative text-center px-6">
-                <h1 class="text-4xl md:text-5xl font-bold uppercase">{{ $subdivision->sub_name }}</h1>
-                <p class="mt-4 text-lg md:text-xl max-w-3xl mx-auto">
-                    {{ $subdivision->description }}
-                </p>
-
-                <div
-                    class="mt-6 grid grid-cols-2 gap-6 max-w-md mx-auto border-white border-1 bg-opacity-80 p-4 rounded-lg text-gray-900 shadow-lg">
-                    <div class="p-4 text-center">
-                        <h3 class="text-lg font-semibold text-white">Blocks</h3>
-                        <p
-                            class="text-4xl font-bold bg-gradient-to-r from-yellow-500 via-yellow-300 to-yellow-600 text-transparent bg-clip-text">
-                            {{ $subdivision->block_number }}</p>
-                    </div>
-                    <div class="p-4 text-center">
-                        <h3 class="text-lg font-semibold text-white">Lots</h3>
-                        <p
-                            class="text-4xl font-bold bg-gradient-to-r from-yellow-500 via-yellow-300 to-yellow-600 text-transparent bg-clip-text">
-                            {{ $subdivision->house_number }}
-                        </p>
-
+                <div class="relative top-0 left-0 w-full px-6 pt-6 z-10 mb-4">
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-6xl mx-auto">
+                        @foreach ($gallery_images as $image)
+                            <img src="{{ asset('storage/' . $image->image) }}" alt="Gallery Image"
+                                class="w-full h-32 md:h-40 object-cover rounded-lg shadow-xl">
+                        @endforeach
                     </div>
                 </div>
+                <!-- Content Overlay -->
+                <div class="relative text-center px-6">
+                    <!-- Gallery Top Row -->
 
-                <!-- Inquire Button -->
-                <div class="mt-6">
-                    <div class="">
-                        <a href="#second"
-                            class="bg-green-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-green-700 transition shadow-md">
-                            INQUIRE NOW!
-                        </a>
-                        <div class="mt-4">
-                            <a href="/user/subdivisions" class="cursor-pointer hover:text-gray-500">Back</a>
+                    <h1 class="text-4xl  md:text-3xl font-bold uppercase">{{ $subdivision->sub_name }}</h1>
+                    <p class="mt-1 text-lg md:text-sm max-w-3xl mx-auto">
+                        {{ $subdivision->description }}
+                    </p>
+
+                    <div
+                        class="mt-6 grid grid-cols-2 gap-6 max-w-md mx-auto border-white border-1 bg-opacity-80 p-2 rounded-lg text-gray-900 shadow-lg">
+                        <div class="p-3 text-center">
+                            <h3 class="text-lg font-semibold text-white">Blocks</h3>
+                            <p
+                                class="text-4xl font-bold bg-gradient-to-r from-yellow-500 via-yellow-300 to-yellow-600 text-transparent bg-clip-text">
+                                {{ $subdivision->block_number }}</p>
+                        </div>
+                        <div class="p-3 text-center">
+                            <h3 class="text-lg font-semibold text-white">Lots</h3>
+                            <p
+                                class="text-4xl font-bold bg-gradient-to-r from-yellow-500 via-yellow-300 to-yellow-600 text-transparent bg-clip-text">
+                                {{ $subdivision->house_number }}
+                            </p>
+
+                        </div>
+                    </div>
+
+                    <!-- Inquire Button -->
+                    <div class="mt-6">
+                        <div class="">
+                            <a href="#second"
+                                class="bg-green-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-green-700 transition shadow-md">
+                                INQUIRE NOW!
+                            </a>
+                            <div class="mt-4">
+                                <a href="/user/subdivisions" class="cursor-pointer hover:text-gray-500">Back</a>
+                            </div>
+
                         </div>
 
                     </div>
-
                 </div>
             </div>
+
 
         </section>
         <section id="second" class="transition-transform">

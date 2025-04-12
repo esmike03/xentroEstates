@@ -7,6 +7,10 @@
     <title>Xentro - Find Your Dream Home</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <script src="https://kit.fontawesome.com/your-kit-id.js" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
     <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@400;700&display=swap"
         rel="stylesheet">
     <link rel="icon" type="image/png" href="{{ asset('images/home (1).png') }}">
@@ -47,14 +51,15 @@
             <nav class="hidden md:flex space-x-6">
                 <a href="/"
                     class="text-white hover:text-yellow-500 border-b-yellow-500 border-b-2 hover:scale-105 transition duration-300">Home</a>
-                <a href="user-listings1"
-                    class="text-white hover:text-yellow-500 hover:scale-105 transition duration-300">Properties</a>
+                <a href="/user/subdivisions"
+                    class="text-white hover:text-yellow-500 hover:scale-105 transition duration-300">Subdivisions</a>
+                {{-- <a href="user-listings1"
+                    class="text-white hover:text-yellow-500 hover:scale-105 transition duration-300">Properties</a> --}}
                 <a href="/about" class="text-white hover:text-yellow-500 hover:scale-105 transition duration-300">About
                     Us</a>
                 <a href="/contact"
                     class="text-white hover:text-yellow-500 hover:scale-105 transition duration-300">Contact</a>
-                <a href="/user/subdivisions"
-                    class="text-white hover:text-yellow-500 hover:scale-105 transition duration-300">Subdivisions</a>
+
             </nav>
 
             <!-- Mobile Menu Button -->
@@ -70,14 +75,25 @@
         <!-- Mobile Menu -->
         <div id="mobile-menu" class="hidden flex flex-col bg-zinc-800 shadow-md absolute w-full left-0 top-full z-50">
             <a href="#" class="block py-3 px-4 text-white hover:text-yellow-500 hover:bg-gray-100">Home</a>
-            <a href="user-listings1"
-                class="block py-3 px-4 hover:text-yellow-500 text-white hover:bg-gray-100">Properties</a>
-            <a href="/about" class="block py-3 px-4 text-white hover:text-yellow-500 hover:bg-gray-100">About Us</a>
-            <a href="/contact" class="block py-3 px-4 text-white hover:text-yellow-500 hover:bg-gray-100">Contact</a>
             <a href="/user/subdivisions"
                 class="block py-3 px-4 text-white hover:text-yellow-500 hover:bg-gray-100">Subdivisions</a>
+            {{-- <a href="user-listings1"
+                class="block py-3 px-4 hover:text-yellow-500 text-white hover:bg-gray-100">Properties</a> --}}
+            <a href="/about" class="block py-3 px-4 text-white hover:text-yellow-500 hover:bg-gray-100">About Us</a>
+            <a href="/contact" class="block py-3 px-4 text-white hover:text-yellow-500 hover:bg-gray-100">Contact</a>
+
         </div>
     </header>
+    <div class="fixed bottom-4 right-4 w-64 h-36 md:w-72 md:h-44 z-50 rounded-lg shadow-2xl transition-transform hover:scale-105 overflow-hidden">
+        <p class="text-center bg-gray-700 text-white">Check out our Youtube channel!</p>
+        <iframe
+            class="w-full h-full"
+            src="https://www.youtube.com/embed/0eHj6TsgB_w"
+            title="YouTube video"
+            allowfullscreen>
+        </iframe>
+    </div>
+
     <section class="relative h-[600px] bg-cover bg-center "
         style="background-image: url({{ asset('images/33052.png') }});">
 
@@ -92,15 +108,40 @@
                 <a href="/user/subdivisions"
                     class="bg-transparent border m-2 border-white text-white hover:bg-zinc-900 font-semibold py-3 px-8 rounded-full transition duration-300">
                     Subdivisions</a>
-                <a href="user-listings1"
+                {{-- <a href="user-listings1"
                     class="bg-transparent border m-2 border-white text-white hover:bg-zinc-900 font-semibold py-3 px-8 rounded-full transition duration-300">
-                    Properties</a>
+                    Properties</a> --}}
             </div>
 
         </div>
     </section>
+    <section class="mt-10 px-6">
+        <h1 class="text-3xl font-bold text-zinc-900  text-center uppercase italic mb-10">Subdivisions</h1>
 
-    <section class="py-16 relative h-[600px] bg-contain bg-center"
+        <!-- Subdivision Grid -->
+        <div class="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-6">
+            @foreach ($subdivisions as $subdivision)
+                <a href="{{ route('subdivision.show', ['subdivision_id' => $subdivision->id]) }}"
+                    class="group relative overflow-hidden rounded-lg shadow-lg hover:scale-105 transition-transform duration-300">
+                    <div class="absolute inset-0 bg-black opacity-30 group-hover:bg-opacity-60 transition duration-300">
+                    </div>
+                    <img src="{{ asset('storage/' . $subdivision->image) }}" alt="{{ $subdivision->sub_name }}"
+                        class="w-full h-64 object-cover">
+                    <div class="absolute bottom-0 w-full bg-gradient-to-t from-black to-transparent p-4">
+                        <h3 class="text-lg font-semibold text-white">{{ $subdivision->sub_name }}</h3>
+                        <p class="text-gray-300 text-sm">
+                            <strong>Blocks:</strong> {{ $subdivision->block_number }} |
+                            <strong>Houses:</strong> {{ $subdivision->house_number }}
+                        </p>
+                    </div>
+                </a>
+            @endforeach
+        </div>
+        <!-- Building Silhouette Background -->
+
+
+    </section>
+    {{-- <section class="py-16 relative h-[600px] bg-contain bg-center"
         style="background-image: url({{ asset('images/herooverlay3.png') }});">
         <div class="container mx-auto px-4">
             <h2 class="text-3xl font-semibold text-center mb-8 italic">Featured Properties</h2>
@@ -155,7 +196,7 @@
                 </div>
             @endif
         </div>
-    </section>
+    </section> --}}
 
 
     <section class="bg-white py-16">
@@ -167,8 +208,7 @@
                         your
                         dream home. With years of experience and a wide range of properties, we are committed to
                         providing exceptional service and making your real estate journey seamless.</p>
-                    <a href="/about"
-                        class="  text-gray-800 font-semibold  rounded-full transition duration-300">Learn
+                    <a href="/about" class="  text-gray-800 font-semibold  rounded-full transition duration-300">Learn
                         More</a>
                 </div>
                 <div>
@@ -179,8 +219,8 @@
     </section>
     <footer class="bg-white lg:grid lg:grid-cols-5">
         <div class="relative block h-32 lg:col-span-2 lg:h-full">
-            <img src="https://images.unsplash.com/photo-1642370324100-324b21fab3a9?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1548&q=80"
-                alt="" class="absolute inset-0 h-full w-full object-cover" />
+            <img src="{{ asset('images/realestate.png') }}" alt=""
+                class="absolute inset-0 h-full w-full object-cover" />
         </div>
 
         <div class="px-4 py-16 sm:px-6 lg:col-span-3 lg:px-8">
@@ -191,19 +231,19 @@
 
                         <a href="#"
                             class="block text-xl font-medium text-gray-900 hover:opacity-75 sm:text-2xl">
-                            (+63) 9XX-XXX-XXXX
+                            (+63) 928-551-2464
                         </a>
                     </p>
 
                     <ul class="mt-8 space-y-1 text-sm text-gray-700">
-                        <li>Monday to Friday: 10am - 5pm</li>
-                        <li>Weekend: 10am - 3pm</li>
+                        <li>Monday to Saturday: 8am - 5pm(PHT)</li>
+                        <li>Sunday: <span class="text-red-400">Closed</span></li>
                     </ul>
 
                     <ul class="mt-8 flex gap-6">
                         <li>
-                            <a href="#" rel="noreferrer" target="_blank"
-                                class="text-gray-700 transition hover:opacity-75">
+                            <a href="https://www.facebook.com/profile.php?id=61560303077270" rel="noreferrer"
+                                target="_blank" class="text-gray-700 transition hover:opacity-75">
                                 <span class="sr-only">Facebook</span>
 
                                 <svg class="size-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
@@ -215,6 +255,15 @@
                         </li>
 
                         <li>
+                            <a href="https://www.youtube.com/@LandDeals-m9o" rel="noreferrer"
+                                target="_blank" class="text-gray-700 transition hover:opacity-75">
+                                <span class="sr-only">Youtube</span>
+
+                                <i class="fab fa-youtube"></i>
+                            </a>
+                        </li>
+
+                        {{-- <li>
                             <a href="#" rel="noreferrer" target="_blank"
                                 class="text-gray-700 transition hover:opacity-75">
                                 <span class="sr-only">Instagram</span>
@@ -225,7 +274,7 @@
                                         clip-rule="evenodd" />
                                 </svg>
                             </a>
-                        </li>
+                        </li> --}}
 
 
                     </ul>

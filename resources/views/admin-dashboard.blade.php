@@ -22,8 +22,9 @@
     <nav class="flex items-center space-x-4">
         <a href="/" class="hover:text-orange-950">Website</a>
 
-        <a href="/admin/listings" class="hover:text-orange-950">Listings</a>
+        <a href="/admin/listings" class="hover:text-orange-950">Properties</a>
         <a href="/admin/inquiries" class="hover:text-orange-950">Inquiries</a>
+        <a href="/admin/queries" class="hover:text-orange-950">Sub Query</a>
         <a href="/bookings/inquiries" class="hover:text-orange-950">Booking</a>
         <a href="/subdivisions" class="hover:text-orange-950">Subdivision</a>
         <a href="/create-team" class="hover:text-orange-950">Team</a>

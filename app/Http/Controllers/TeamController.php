@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Models\Team;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class TeamController extends Controller
 {
@@ -47,4 +48,19 @@ class TeamController extends Controller
         $member = Team::findOrFail($id);
         return view('team_index', compact('member'));
     }
+
+    public function destroy($id)
+{
+    $member = Team::findOrFail($id);
+
+    // Delete the image if it exists
+    if ($member->image && Storage::exists('public/' . $member->image)) {
+        Storage::delete('public/' . $member->image);
+    }
+
+    $member->delete();
+
+    return redirect()->back()->with('success', 'Team member deleted successfully!');
+}
+
 }

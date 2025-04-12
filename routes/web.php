@@ -2,7 +2,10 @@
 
 use App\Models\Team;
 use App\Models\Listing;
+use App\Models\SubQuery;
 use App\Models\Subdivision;
+use Maatwebsite\Excel\Facades\Excel;
+use App\Exports\BookingsExport;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TeamController;
@@ -15,12 +18,12 @@ use App\Http\Controllers\ListingController;
 use App\Http\Controllers\SubQueryController;
 use App\Http\Controllers\SubdivisionController;
 use App\Http\Controllers\AboutUsAdminController;
-use App\Models\SubQuery;
 
 Route::get('/', function () {
     $featuredListings = Listing::where('is_featured', true)->get();
+    $subdivisions = Subdivision::all();
     // ... other logic
-    return view('welcomes', compact('featuredListings'));
+    return view('welcomes', compact('featuredListings', 'subdivisions'));
 });
 
 // Admin Login
@@ -133,4 +136,12 @@ Route::get('/bookings/inquiries', [BookingController::class, 'index'])->name('bo
 
 Route::delete('/bookings/{id}', [BookingController::class, 'destroy'])->name('bookings.destroy');
 
+Route::post('/gallery/store/sub', [SubdivisionController::class, 'store_gallery'])->name('gallery.store');
 
+Route::delete('/gallery/{id}', [SubdivisionController::class, 'destroy_gallery'])->name('gallery.destroy');
+
+Route::delete('/team/{id}', [TeamController::class, 'destroy'])->name('team.destroy');
+
+Route::get('/bookings/export', function () {
+    return Excel::download(new BookingsExport, 'bookings.xlsx');
+})->name('bookings.export');

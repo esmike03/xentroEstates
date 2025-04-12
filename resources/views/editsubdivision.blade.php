@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Edit Subdivision</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
     @vite('resources/css/app.css')
     @vite('resources/js/app.js')
 </head>
@@ -145,7 +146,6 @@
                                         @endphp
 
                                         @if ($totalPrice)
-
                                             <strong>₱{{ number_format($totalPrice, 2) }}</strong>
                                         @else
                                             Not available
@@ -193,6 +193,73 @@
         </form>
 
     </div>
+    <div class="mx-auto px-20 mt-6">
+
+        <div class="mx-auto px-20 mt-6 max-w-3xl">
+            <h1 class="text-2xl font-bold mb-4">Add Gallery Image</h1>
+
+            @if (session('success'))
+                <div class="bg-green-100 text-green-700 px-4 py-2 rounded mb-4">
+                    {{ session('success') }}
+                </div>
+            @endif
+
+            @if ($errors->any())
+                <div class="bg-red-100 text-red-700 px-4 py-2 rounded mb-4">
+                    <ul class="list-disc ml-6">
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
+
+            <form action="{{ route('gallery.store') }}" method="POST" enctype="multipart/form-data"
+                class="bg-white p-6 rounded-lg shadow-md space-y-4">
+                @csrf
+
+                <input type="hidden" name="subdivision_id" value="{{ $subdivision->id }}">
+
+                <div>
+                    <label for="image" class="block font-medium mb-1">Select Image</label>
+                    <input type="file" name="image" id="image"
+                        class="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring focus:border-blue-400"
+                        required>
+                </div>
+
+                <div class="text-right">
+                    <button type="submit"
+                        class="bg-green-600 text-white px-6 py-2 rounded hover:bg-green-700 transition">
+                        Upload
+                    </button>
+                </div>
+            </form>
+
+            <!-- Gallery Images Display with Delete Function -->
+            <div class="relative top-0 left-0 w-full px-6 pt-6 z-10 mb-4">
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-6xl mx-auto">
+                    @foreach ($gallery_images as $image)
+                        <div class="relative group">
+                            <img src="{{ asset('storage/' . $image->image) }}" alt="Gallery Image"
+                                class="w-full h-32 md:h-40 object-cover rounded-lg shadow-xl">
+                            <!-- Delete button overlay (visible on hover) -->
+                            <form action="{{ route('gallery.destroy', $image->id) }}" method="POST"
+                                class="absolute top-2 right-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit"
+                                    onclick="return confirm('Are you sure you want to delete this image?')"
+                                    class="bg-red-500 text-white rounded-full p-2">
+                                    <i class="fas fa-trash-alt"></i>
+                                </button>
+                            </form>
+                        </div>
+                    @endforeach
+                </div>
+            </div>
+        </div>
+    </div>
+
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
@@ -216,8 +283,17 @@
             <input type="hidden" name="blocks[${blockId}][houses][new_${houseIndex}][block_id]" value="${blockId}">
             <label class="block text-gray-700 font-bold mt-2">Lot Area (sq meters)</label>
             <input type="number" name="blocks[${blockId}][houses][new_${houseIndex}][house_area]" class="w-full border rounded py-2 px-3" step="any" min="0" required>
-            <label class="block text-gray-700 font-bold mt-2">Lot Price (PHP)</label>
-            <input type="number" name="blocks[${blockId}][houses][new_${houseIndex}][house_price]" class="w-full border rounded py-2 px-3" step="any" min="0" required>
+            <label class="block text-gray-700 font-bold mt-2">Category</label>
+            <select name="blocks[${blockId}][houses][new_${houseIndex}][category]"
+                                        class="w-full border mt-1 rounded py-2 px-3" required>
+                                        <option value="">-- Select Category --</option>
+                                        @foreach ($categorys as $cat)
+                                            <option value="{{ $cat->cat_name }}"
+                                                {{ isset($house->category) && $house->category == $cat->cat_name ? 'selected' : '' }}>
+                                                {{ $cat->cat_name }}
+                                            </option>
+                                        @endforeach
+                                    </select>
             <label class="block text-gray-700 font-bold mt-2">Lot Status</label>
             <select name="blocks[${blockId}][houses][new_${houseIndex}][house_status]" class="w-full border rounded py-2 px-3" required>
               <option value="Available">Available</option>

@@ -27,14 +27,16 @@
             <nav class="hidden md:flex space-x-6">
                 <a href="/"
                     class="text-white hover:text-yellow-500 hover:scale-105 transition duration-300">Home</a>
-                <a href="user-listings1"
-                    class="text-white hover:text-yellow-500 hover:scale-105 transition duration-300">Properties</a>
-                <a href="/about" class="text-white border-b-yellow-500 border-b-2 hover:text-yellow-500 hover:scale-105 transition duration-300">About
+                <a href="/user/subdivisions"
+                    class="text-white hover:text-yellow-500 hover:scale-105 transition duration-300">Subdivisions</a>
+                {{-- <a href="user-listings1"
+                    class="text-white hover:text-yellow-500 hover:scale-105 transition duration-300">Properties</a> --}}
+                <a href="/about"
+                    class="text-white border-b-yellow-500 border-b-2 hover:text-yellow-500 hover:scale-105 transition duration-300">About
                     Us</a>
                 <a href="/contact"
                     class="text-white hover:text-yellow-500 hover:scale-105 transition duration-300">Contact</a>
-                <a href="/user/subdivisions"
-                    class="text-white hover:text-yellow-500 hover:scale-105 transition duration-300">Subdivisions</a>
+
             </nav>
 
             <!-- Mobile Menu Button -->
@@ -50,12 +52,13 @@
         <!-- Mobile Menu -->
         <div id="mobile-menu" class="hidden flex flex-col bg-zinc-800 shadow-md absolute w-full left-0 top-full z-50">
             <a href="#" class="block py-3 px-4 text-white hover:text-yellow-500 hover:bg-gray-100">Home</a>
-            <a href="user-listings1"
-                class="block py-3 px-4 hover:text-yellow-500 text-white hover:bg-gray-100">Properties</a>
-            <a href="/about" class="block py-3 px-4 text-white hover:text-yellow-500 hover:bg-gray-100">About Us</a>
-            <a href="/contact" class="block py-3 px-4 text-white hover:text-yellow-500 hover:bg-gray-100">Contact</a>
             <a href="/user/subdivisions"
                 class="block py-3 px-4 text-white hover:text-yellow-500 hover:bg-gray-100">Subdivisions</a>
+            {{-- <a href="user-listings1"
+                class="block py-3 px-4 hover:text-yellow-500 text-white hover:bg-gray-100">Properties</a> --}}
+            <a href="/about" class="block py-3 px-4 text-white hover:text-yellow-500 hover:bg-gray-100">About Us</a>
+            <a href="/contact" class="block py-3 px-4 text-white hover:text-yellow-500 hover:bg-gray-100">Contact</a>
+
         </div>
     </header>
     <div class="container mx-auto p-8 max-w-5xl mt-20">
@@ -116,7 +119,7 @@
                     class="w-40 h-40 mx-auto rounded-full object-cover shadow-lg">
                 <h3 class="font-semibold text-xl text-gray-800 mt-4">Efren "Renz" Adlaon </h3>
                 <p class="text-sm text-gray-600">President & Chief Executive Officer</p>
-                <p class="italic text-gray-700 mt-2">"Leading with innovation and commitment to excellence."</p>
+                <p class="italic text-gray-700 mt-2">"Plan, Work and Execute."</p>
             </div>
         </div>
 

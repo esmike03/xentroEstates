@@ -2,19 +2,40 @@
 
 namespace App\Http\Controllers;
 
+use GMP;
 use App\Models\Block;
+use App\Models\House;
 use App\Models\Amenity;
 use App\Models\Category;
-use Illuminate\Http\Request;
+use App\Models\GallerySub;
 use App\Models\Subdivision;
-use App\Models\House;
+use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
+use Illuminate\Support\Facades\Storage;
 
 class SubdivisionController extends Controller
 {
     /**
      * Show the form for creating a new subdivision.
      */
+    public function store_gallery(Request $request)
+    {
+
+        $request->validate([
+            'image' => 'required|image|max:4048',
+            'subdivision_id' => 'required|string|max:255',
+        ]);
+
+        $path = $request->file('image')->store('gallery', 'public');
+
+        GallerySub::create([
+            'subdivision_id' => $request->subdivision_id,
+            'image' => $path,
+        ]);
+
+        return redirect()->back()->with('success', 'Image added to gallery successfully!');
+    }
+
     public function index()
     {
 
@@ -168,8 +189,8 @@ class SubdivisionController extends Controller
         $categorys = Category::all();
 
         $subdivision = Subdivision::with('blocks.houses.category')->findOrFail($id);
-
-        return view('editsubdivision', compact('subdivision', 'categorys'));
+        $gallery_images = GallerySub::where('subdivision_id', $subdivision->id)->get();
+        return view('editsubdivision', compact('subdivision', 'categorys', 'gallery_images'));
     }
 
     public function update(Request $request, $id)
@@ -224,6 +245,7 @@ class SubdivisionController extends Controller
                                     'category' => $houseData['category'],
                                     // 'house_price' => $houseData['house_price'],
                                     'assigned_house_number' => $houseData['assigned_house_number'], // Corrected line
+                                    'category' => $houseData['category'],
                                     'house_status' => $houseData['house_status'],
                                 ]);
                             } else {
@@ -250,6 +272,7 @@ class SubdivisionController extends Controller
                                         'house_area' => $houseData['house_area'],
                                         // 'house_price' => $houseData['house_price'],
                                         'assigned_house_number' => $houseData['assigned_house_number'], // Corrected line
+                                        'category' => $houseData['category'],
                                         'house_status' => $houseData['house_status'],
                                     ]);
                                 } else {
@@ -351,7 +374,27 @@ class SubdivisionController extends Controller
         // Fetch the subdivision or return a 404 error if not found
         $subdivision = Subdivision::findOrFail($subdivision_id);
         $subdivisions = Subdivision::with('blocks.houses.category')->findOrFail($subdivision_id);
+
+        $gallery_images = GallerySub::where('subdivision_id', $subdivision_id)->get();
+
+
         // Return the view with the subdivision data
-        return view('NGH_sud', compact('subdivision', 'subdivisions', 'categorys'));
+        return view('NGH_sud', compact('subdivision', 'subdivisions', 'categorys', 'gallery_images'));
+    }
+
+    public function destroy_gallery($id)
+    {
+        // Find the gallery image or fail.
+        $gallery = GallerySub::findOrFail($id);
+
+        // Delete the image file from storage if it exists.
+        if (Storage::disk('public')->exists($gallery->image)) {
+            Storage::disk('public')->delete($gallery->image);
+        }
+
+        // Delete the record from the database.
+        $gallery->delete();
+
+        return redirect()->back()->with('success', 'Gallery image deleted successfully!');
     }
 }
