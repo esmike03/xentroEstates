@@ -13,7 +13,7 @@
 </head>
 
 <body class="bg-gray-100 font-[Ubuntu]">
-    <header class="bg-zinc-800 shadow fixed w-full z-50 top-0 backdrop-filter backdrop-blur-xl bg-opacity-30">
+    <header class="bg-zinc-800/90 shadow fixed w-full z-50 top-0 backdrop-filter backdrop-blur-xl bg-opacity-30">
 
         <div class="container mx-auto px-4 py-4 flex justify-between items-center">
             <!-- Logo -->
@@ -70,11 +70,13 @@
         </div>
 
         <div class="flex justify-center items-center">
-            <video width="640" height="360" controls>
-                <source src="{{ Storage::url('videos/fast.mp4') }}" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
+            <iframe width="640" height="360" src="https://www.youtube.com/embed/V3B95jE0Z9U"
+                title="YouTube video player" frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen>
+            </iframe>
         </div>
+
 
 
         <div class="flex gap-4 mt-6">

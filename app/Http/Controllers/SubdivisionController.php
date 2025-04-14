@@ -200,6 +200,7 @@ class SubdivisionController extends Controller
         $request->validate([
             'sub_name' => 'required|string|max:255',
             'sub_image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:5000',
+            'video' => 'required|mimes:mp4,mov,ogg,qt|max:501200',
             'plot'       => 'nullable|image|mimes:jpeg,png,jpg,gif|max:5000',
             'blocks.*.houses.*.house_area' => 'required|numeric',
             // 'blocks.*.houses.*.house_price' => 'required|numeric|min:0',
@@ -214,6 +215,11 @@ class SubdivisionController extends Controller
         if ($request->hasFile('sub_image')) {
             $imagePath = $request->file('sub_image')->store('subdivision_images', 'public');
             $subdivision->image = $imagePath;
+        }
+
+        if ($request->hasFile('video')) {
+            $videoPath = $request->file('video')->store('videos', 'public');
+            $subdivision->video = $videoPath;
         }
 
         // Update plot image if a new file is provided

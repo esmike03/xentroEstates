@@ -66,6 +66,7 @@
                         class="mt-2 max-w-xs">
                 @endif
             </div>
+
             <!-- Plot Image Field -->
             <div class="mb-4">
                 <label class="block text-gray-700 font-bold mb-2">Plot Image</label>
@@ -75,6 +76,26 @@
                         class="mt-2 max-w-xs">
                 @endif
             </div>
+            <h2 class="text-2xl font-bold mb-4 ">Upload a Video</h2>
+
+            <div class="mb-4">
+                <label class="block text-gray-700 font-medium mb-2" for="video">Choose Video File</label>
+                <input type="file" name="video" accept="video/*" required class="w-full border rounded px-3 py-2">
+                @error('video')
+                    <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
+                @enderror
+            </div>
+            @if ($subdivision->video)
+                <div class="mt-4">
+                    <video controls class="w-full max-w-md rounded">
+                        <source src="{{ asset('storage/' . $subdivision->video) }}" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+            @endif
+
+
+
 
             <!-- Blocks Section -->
             <div id="blocks-container" class="mb-4">

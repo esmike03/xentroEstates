@@ -37,7 +37,7 @@
 <!-- Header -->
 
 <body class=" font-[Ubuntu]">
-    <header class="bg-zinc-800 shadow fixed w-full z-50 top-0 backdrop-filter backdrop-blur-xl bg-opacity-30">
+    <header class="bg-zinc-800/90 shadow fixed w-full z-50 top-0 backdrop-filter backdrop-blur-md bg-opacity-30">
 
         <div class="container mx-auto px-4 py-4 flex justify-between items-center">
             <!-- Logo -->
@@ -99,7 +99,7 @@
 
         <div class="absolute inset-0 bg-black opacity-50"></div>
         <div class="relative z-10 text-center text-white flex flex-col justify-center items-center h-full">
-            <h1 class="text-2xl md:text-6xl mx-5 font-bold mb-2 ">Building Sustainable Communities, Shaping the Future
+            <h1 class="text-2xl md:text-6xl mx-5 font-bold mb-2 "><span class="bg-gradient-to-r from-yellow-600 via-yellow-500 to-yellow-700 text-transparent bg-clip-text">Building Sustainable</span> Communities, Shaping the Future
             </h1>
             <p class="text-sm mb-8 mx-3 md:mx-56">Xentro Estates Properties Corp. is committed to creating
                 master-planned communities with innovative design, quality developments, and excellent service. Discover

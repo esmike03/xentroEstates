@@ -16,7 +16,7 @@
 </head>
 
 <body class="bg-gray-100 font-[Ubuntu]">
-    <header class="bg-zinc-800 shadow fixed w-full z-50 top-0 backdrop-filter backdrop-blur-xl bg-opacity-30">
+    <header class="bg-zinc-800/90 shadow fixed w-full z-50 top-0 backdrop-filter backdrop-blur-xl bg-opacity-30">
 
         <div class="container mx-auto px-4 py-4 flex justify-between items-center">
             <!-- Logo -->
@@ -63,82 +63,80 @@
 
         </div>
     </header>
-    <div class="max-w-2xl mx-auto bg-white p-8 rounded-lg shadow-md mt-26">
-        <h2 class="text-3xl font-semibold mb-6 text-center text-gray-800">Contact Us</h2>
+    <div class="max-w-2xl mx-auto bg-white p-6 sm:p-8 rounded-lg shadow-md mt-20">
+        <h2 class="text-2xl sm:text-3xl font-semibold mb-6 text-center text-gray-800">Contact Us</h2>
 
         <div class="mb-4">
-
-            <span class="block text-center text-gray-700">
-                <span class="block font-medium text-center"><i class="fas fa-map-marker-alt text-gray-600 mr-3"></i>Main Office:</span>WPI Bldg., St. Peter St. Doña Maria
-                Village 1, Punta Princesa, Cebu
-                City</span>
+          <span class="block text-center text-gray-700">
+            <span class="block font-medium text-center"><i class="fas fa-map-marker-alt text-gray-600 mr-3"></i>Main Office:</span>
+            WPI Bldg., St. Peter St. Doña Maria Village 1, Punta Princesa, Cebu City
+          </span>
         </div>
+
         <div class="flex items-center my-6">
-            <div class="flex-grow border-t border-gray-300"></div>
-            <span class="mx-4 text-xl font-semibold text-gray-700 whitespace-nowrap">General Contact</span>
-            <div class="flex-grow border-t border-gray-300"></div>
+          <div class="flex-grow border-t border-gray-300"></div>
+          <span class="mx-4 text-lg sm:text-xl font-semibold text-gray-700 whitespace-nowrap">General Contact</span>
+          <div class="flex-grow border-t border-gray-300"></div>
         </div>
 
-        <div class="grid grid-cols-2 gap-6">
-
-            <div>
-                <div class="flex items-center mb-2">
-                    <i class="fas fa-phone-alt text-gray-600 mr-3"></i>
-                    <strong class="block font-medium">Phone:</strong>
-                </div>
-                <span class="block text-gray-700">(+63) 928-551-2464</span>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+          <!-- Contacts -->
+          <div>
+            <div class="flex items-center mb-2">
+              <i class="fas fa-phone-alt text-gray-600 mr-3"></i>
+              <strong class="block font-medium">Phone:</strong>
             </div>
-
-            <div>
-                <div class="flex items-center mb-2">
-                    <i class="fas fa-envelope text-gray-600 mr-3"></i>
-                    <strong class="block font-medium">Email:</strong>
-                </div>
-                <span class="block text-gray-700">xentroestateproperties@gmail.com</span>
+            <span class="block text-gray-700">(+63) 928-551-2464</span>
+          </div>
+          <div>
+            <div class="flex items-center mb-2">
+              <i class="fas fa-envelope text-gray-600 mr-3"></i>
+              <strong class="block font-medium">Email:</strong>
             </div>
+            <span class="block text-gray-700">xentroestateproperties@gmail.com</span>
+          </div>
         </div>
+
         <div class="flex items-center my-6">
-            <div class="flex-grow border-t border-gray-300"></div>
-            <span class="mx-4 text-xl font-semibold text-gray-700 whitespace-nowrap">Customer Inquiries</span>
-            <div class="flex-grow border-t border-gray-300"></div>
+          <div class="flex-grow border-t border-gray-300"></div>
+          <span class="mx-4 text-lg sm:text-xl font-semibold text-gray-700 whitespace-nowrap">Customer Inquiries</span>
+          <div class="flex-grow border-t border-gray-300"></div>
         </div>
-        <div class="grid grid-cols-2 gap-6">
 
-
-            <div>
-                <div class="flex items-center mb-2">
-                    <i class="fas fa-phone-alt text-gray-600 mr-3"></i>
-                    <strong class="block font-medium">Phone:</strong>
-                </div>
-                <span class="block text-gray-700">(+63) 968-346-1315</span>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+          <div>
+            <div class="flex items-center mb-2">
+              <i class="fas fa-phone-alt text-gray-600 mr-3"></i>
+              <strong class="block font-medium">Phone:</strong>
             </div>
-
-            <div>
-                <div class="flex items-center mb-2">
-                    <i class="fas fa-envelope text-gray-600 mr-3"></i>
-                    <strong class="block font-medium">Email:</strong>
-                </div>
-                <span class="block text-gray-700">xentroestatemktg@gmail.com</span>
+            <span class="block text-gray-700">(+63) 968-346-1315</span>
+          </div>
+          <div>
+            <div class="flex items-center mb-2">
+              <i class="fas fa-envelope text-gray-600 mr-3"></i>
+              <strong class="block font-medium">Email:</strong>
             </div>
+            <span class="block text-gray-700">xentroestatemktg@gmail.com</span>
+          </div>
         </div>
-        <div class="col-span-2 mt-2 w-full flex justify-center ">
 
-            <div class=" mt-6">
-                <div class="flex items-center my-6">
-                    <div class="flex-grow border-t border-gray-300"></div>
-                    <span class="mx-4 text-xl font-semibold text-gray-700 whitespace-nowrap">Social Media</span>
-                    <div class="flex-grow border-t border-gray-300"></div>
-                </div>
-                <div class="flex space-x-4">
-                    <a href="https://www.facebook.com/profile.php?id=61560303077270"
-                        class="text-blue-500 text-xl hover:underline"><i class="fab fa-facebook-f"></i> Facebook</a>
-                    <a href="https://www.youtube.com/@LandDeals-m9o" class="text-red-500 text-xl hover:underline"><i
-                            class="fab fa-youtube"></i> Youtube</a>
-                </div>
-
+        <div class="col-span-2 mt-6 w-full flex justify-center">
+          <div>
+            <div class="flex items-center my-6">
+              <div class="flex-grow border-t border-gray-300"></div>
+              <span class="mx-4 text-lg sm:text-xl font-semibold text-gray-700 whitespace-nowrap">Social Media</span>
+              <div class="flex-grow border-t border-gray-300"></div>
             </div>
+            <div class="flex flex-col sm:flex-row sm:space-x-4 space-y-3 sm:space-y-0">
+              <a href="https://www.facebook.com/profile.php?id=61560303077270"
+                class="text-blue-500 text-xl hover:underline"><i class="fab fa-facebook-f"></i> Facebook</a>
+              <a href="https://www.youtube.com/@LandDeals-m9o" class="text-red-500 text-xl hover:underline"><i
+                  class="fab fa-youtube"></i> YouTube</a>
+            </div>
+          </div>
         </div>
-    </div>
+      </div>
+
 
 
 </body>

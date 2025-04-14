@@ -13,7 +13,7 @@
 <body class="font-[Ubuntu] bg-cover bg-center" style="background-image: url('{{ asset('images/Green.jpg') }}');">
 
     <!-- Header -->
-    <header class="bg-zinc-800 bg-opacity-80 backdrop-blur-md shadow-md fixed w-full z-50 top-0">
+    <header class="bg-zinc-800/90 bg-opacity-80 backdrop-blur-md shadow-md fixed w-full z-50 top-0">
         <div class="container mx-auto px-6 py-4 flex justify-between items-center">
             <!-- Logo -->
             <a href="/" class="flex items-center space-x-3">
@@ -68,7 +68,7 @@
                         <h3 class="text-lg font-semibold text-white">{{ $subdivision->sub_name }}</h3>
                         <p class="text-gray-300 text-sm">
                             <strong>Blocks:</strong> {{ $subdivision->block_number }} |
-                            <strong>Houses:</strong> {{ $subdivision->house_number }}
+                            <strong>Lots:</strong> {{ $subdivision->house_number }}
                         </p>
                     </div>
                 </a>
